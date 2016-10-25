@@ -3,8 +3,6 @@ package com.reactnative.photoview;
 import android.widget.ImageView.ScaleType;
 import com.facebook.drawee.backends.pipeline.Fresco;
 import com.facebook.drawee.backends.pipeline.PipelineDraweeControllerBuilder;
-import com.facebook.drawee.drawable.ScalingUtils;
-import com.facebook.drawee.generic.GenericDraweeHierarchy;
 import com.facebook.react.bridge.ReactApplicationContext;
 import com.facebook.react.common.MapBuilder;
 import com.facebook.react.uimanager.SimpleViewManager;
@@ -67,11 +65,6 @@ public class PhotoViewManager extends SimpleViewManager<PhotoView> {
         view.setMaximumScale(maximumZoomScale);
     }
 
-    @ReactProp(name = "scale")
-    public void setScale(PhotoView view, float scale) {
-        view.setScale(scale, true);
-    }
-
     @ReactProp(name = "androidZoomTransitionDuration")
     public void setScale(PhotoView view, int durationMs) {
         view.setZoomTransitionDuration(durationMs);
@@ -79,33 +72,35 @@ public class PhotoViewManager extends SimpleViewManager<PhotoView> {
 
     @ReactProp(name = "androidScaleType")
     public void setScaleType(PhotoView view, String scaleType) {
-        ScalingUtils.ScaleType value = ScalingUtils.ScaleType.CENTER;
+        ScaleType value = ScaleType.CENTER;
 
         switch (scaleType) {
             case "center":
-                value = ScalingUtils.ScaleType.CENTER;
+                value = ScaleType.CENTER;
                 break;
             case "centerCrop":
-                value = ScalingUtils.ScaleType.CENTER_CROP;
+                value = ScaleType.CENTER_CROP;
                 break;
             case "centerInside":
-                value = ScalingUtils.ScaleType.CENTER_INSIDE;
+                value = ScaleType.CENTER_INSIDE;
                 break;
             case "fitCenter":
-                value = ScalingUtils.ScaleType.FIT_CENTER;
+                value = ScaleType.FIT_CENTER;
                 break;
             case "fitStart":
-                value = ScalingUtils.ScaleType.FIT_START;
+                value = ScaleType.FIT_START;
                 break;
             case "fitEnd":
-                value = ScalingUtils.ScaleType.FIT_END;
+                value = ScaleType.FIT_END;
                 break;
             case "fitXY":
-                value = ScalingUtils.ScaleType.FIT_XY;
+                value = ScaleType.FIT_XY;
+                break;
+            case "matrix":
+                value = ScaleType.MATRIX;
                 break;
         }
-        GenericDraweeHierarchy hierarchy = view.getHierarchy();
-        hierarchy.setActualImageScaleType(value);
+        view.setScaleType(value);
     }
 
     @Override

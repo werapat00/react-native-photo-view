@@ -91,7 +91,7 @@ public class PhotoView extends PhotoDraweeView {
                 @Override
                 public void onSubmit(String id, Object callerContext) {
                     eventDispatcher.dispatchEvent(
-                            new ImageEvent(getId(), ImageEvent.ON_LOAD_START)
+                            new ImageEvent(getId(), SystemClock.nanoTime(), ImageEvent.ON_LOAD_START)
                     );
                 }
 
@@ -102,22 +102,21 @@ public class PhotoView extends PhotoDraweeView {
                         @Nullable Animatable animatable) {
                     if (imageInfo != null) {
                         eventDispatcher.dispatchEvent(
-                                new ImageEvent(getId(), ImageEvent.ON_LOAD)
+                                new ImageEvent(getId(), SystemClock.nanoTime(), ImageEvent.ON_LOAD)
                         );
                         eventDispatcher.dispatchEvent(
-                                new ImageEvent(getId(), ImageEvent.ON_LOAD_END)
+                                new ImageEvent(getId(), SystemClock.nanoTime(), ImageEvent.ON_LOAD_END)
                         );
-                        update(imageInfo.getWidth(), imageInfo.getHeight());
                     }
                 }
 
                 @Override
                 public void onFailure(String id, Throwable throwable) {
                     eventDispatcher.dispatchEvent(
-                            new ImageEvent(getId(), ImageEvent.ON_ERROR)
+                            new ImageEvent(getId(), SystemClock.nanoTime(), ImageEvent.ON_ERROR)
                     );
                     eventDispatcher.dispatchEvent(
-                            new ImageEvent(getId(), ImageEvent.ON_LOAD_END)
+                            new ImageEvent(getId(), SystemClock.nanoTime(), ImageEvent.ON_LOAD_END)
                     );
                 }
             };
@@ -174,7 +173,7 @@ public class PhotoView extends PhotoDraweeView {
                 scaleChange.putDouble("x", x);
                 scaleChange.putDouble("y", y);
                 eventDispatcher.dispatchEvent(
-                        new ImageEvent(getId(), ImageEvent.ON_TAP).setExtras(scaleChange)
+                        new ImageEvent(getId(), SystemClock.nanoTime(), ImageEvent.ON_TAP).setExtras(scaleChange)
                 );
             }
         });
@@ -187,7 +186,7 @@ public class PhotoView extends PhotoDraweeView {
                 scaleChange.putDouble("focusX", focusX);
                 scaleChange.putDouble("focusY", focusY);
                 eventDispatcher.dispatchEvent(
-                        new ImageEvent(getId(), ImageEvent.ON_SCALE).setExtras(scaleChange)
+                        new ImageEvent(getId(), SystemClock.nanoTime(), ImageEvent.ON_SCALE).setExtras(scaleChange)
                 );
             }
         });
@@ -199,7 +198,7 @@ public class PhotoView extends PhotoDraweeView {
                 scaleChange.putDouble("x", x);
                 scaleChange.putDouble("y", y);
                 eventDispatcher.dispatchEvent(
-                        new ImageEvent(getId(), ImageEvent.ON_TAP).setExtras(scaleChange)
+                        new ImageEvent(getId(), SystemClock.nanoTime(), ImageEvent.ON_TAP).setExtras(scaleChange)
                 );
             }
         });
