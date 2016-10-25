@@ -15,12 +15,14 @@ import PhotoView from 'react-native-photo-view';
 Basics:
 ```javascript
 <PhotoView
-  source={{uri: 'https://facebook.github.io/react/img/logo_og.png'}}
+  source={{
+    uri: "http://c1.staticflickr.com/8/7412/27488731000_96ad0b9740_k.jpg"
+  }}>
   minimumZoomScale={0.5}
   maximumZoomScale={3}
   androidScaleType="center"
   onLoad={() => console.log("Image loaded!")}
-  style={{width: 300, height: 300}} />
+</Image>
 ```
 
 ## Properties
@@ -32,13 +34,12 @@ Basics:
 | fadeDuration | int | duration of image fade (in ms) |
 | minimumZoomScale | float | The minimum allowed zoom scale. The default value is 1.0 |
 | maximumZoomScale | float | The maximum allowed zoom scale. The default value is 3.0 |
-| scale | float | Set zoom scale programmatically |
-androidZoomTransitionDuration | int | **Android only**: Double-tap zoom transition duration |
-| androidScaleType | String | **Android only**: One of the default *Android* scale types: "center", "centerCrop", "centerInside", "fitCenter", "fitStart", "fitEnd", "fitXY" |
+| androidZoomTransitionDuration | int | **Android only**: Double-tap zoom transition duration |
+| androidScaleType | String | **Android only**: One of the default *Android* scale types: "center", "centerCrop", "centerInside", "fitCenter", "fitStart", "fitEnd", "fitXY", or "matrix" |
 | onLoadStart | func | Callback function |
 | onLoad | func | Callback function |
 | onLoadEnd | func | Callback function |
-| onTap | func | Callback function (called on image tap) |
+| onTap | func | Callback function. Currently **Android only** (will be available for iOS later) |
 | onViewTap | func | Callback function (called on tap outside of image). Currently **Android only** (will be available for iOS later) |
 | onScale | func | Callback function. Currently **Android only** (will be available for iOS later) |
 
@@ -52,14 +53,13 @@ important callbacks out-of-box and it is, actually, recommended by Chris Banes, 
 support Facebook Fresco;
 * PhotoView has more options like fadeDuration and minimumZoomScale/maximumZoomScale and more important callbacks;
 * PhotoView is written in the same manner as default React Image, and it supports most of the
-features Image has (the goal is to be fully compaitable with Image and support absolutely everything);
-* It is possible to use PhotoView as a container (currently iOS only)!
+features Image has (the goal is to be fully compaitable with Image and support absolutely everything).
 
 ## Automatic installation
 
 Just two simple steps:
 ```
-npm install --save react-native-photo-view@1.2.0
+npm install --save react-native-photo-view@1.0.0
 ```
 ```
 rnpm link react-native-photo-view
@@ -70,7 +70,7 @@ rnpm link react-native-photo-view
 1. Add these lines to `android/settings.gradle`
 ```
 include ':react-native-photo-view'
-project(':react-native-photo-view').projectDir = new File(rootProject.projectDir, '../node_modules/react-native-photo-view/android')
+project(':react-native-photo-view').projectDir = file('../node_modules/react-native-photo-view/android')
 ```
 
 2. Add one more dependency to `android/app/build.gradle`
@@ -82,9 +82,9 @@ dependencies {
 
 3. Add it to your `MainActivity.java`
 
-Next, you need to change the `MainActivity` of your app to register `PhotoViewPackage` :
+Next, you need to change the `MainActivity` of your app to register `ReactImageZoom` :
 ```java
-import com.reactnative.photoview.PhotoViewPackage;
+import me.alwx.reactnative.PhotoViewPackage;
 
 // ...
 

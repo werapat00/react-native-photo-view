@@ -1,13 +1,68 @@
 {
-  "name": "react-native-photo-view",
-  "version": "1.2.0",
-  "description": "Displaying photos with pinch-to-zoom",
-  "main": "index.js",
+  "_args": [
+    [
+      {
+        "raw": "react-native-photo-view@1.0.1",
+        "scope": null,
+        "escapedName": "react-native-photo-view",
+        "name": "react-native-photo-view",
+        "rawSpec": "1.0.1",
+        "spec": "1.0.1",
+        "type": "version"
+      },
+      "/Users/werapat/Documents/railgun"
+    ]
+  ],
+  "_from": "react-native-photo-view@1.0.1",
+  "_id": "react-native-photo-view@1.0.1",
+  "_inCache": true,
+  "_installable": true,
+  "_location": "/react-native-photo-view",
+  "_nodeVersion": "5.8.0",
+  "_npmOperationalInternal": {
+    "host": "packages-12-west.internal.npmjs.com",
+    "tmp": "tmp/react-native-photo-view-1.0.1.tgz_1466417584885_0.9631331502459943"
+  },
+  "_npmUser": {
+    "name": "alwx",
+    "email": "alwxndr@gmail.com"
+  },
+  "_npmVersion": "3.7.3",
+  "_phantomChildren": {},
+  "_requested": {
+    "raw": "react-native-photo-view@1.0.1",
+    "scope": null,
+    "escapedName": "react-native-photo-view",
+    "name": "react-native-photo-view",
+    "rawSpec": "1.0.1",
+    "spec": "1.0.1",
+    "type": "version"
+  },
+  "_requiredBy": [
+    "/"
+  ],
+  "_resolved": "https://registry.npmjs.org/react-native-photo-view/-/react-native-photo-view-1.0.1.tgz",
+  "_shasum": "c45bb3f1d692e321a0109dd6117c9427bfdf3e0f",
+  "_shrinkwrap": null,
+  "_spec": "react-native-photo-view@1.0.1",
+  "_where": "/Users/werapat/Documents/railgun",
   "author": {
     "name": "Alexander Pantyukhov",
     "email": "alwxndr@gmail.com"
   },
-  "license": "MIT",
+  "bugs": {
+    "url": "https://github.com/alwx/react-native-photo-view/issues"
+  },
+  "dependencies": {},
+  "description": "Displaying photos with pinch-to-zoom",
+  "devDependencies": {},
+  "directories": {},
+  "dist": {
+    "shasum": "c45bb3f1d692e321a0109dd6117c9427bfdf3e0f",
+    "tarball": "https://registry.npmjs.org/react-native-photo-view/-/react-native-photo-view-1.0.1.tgz"
+  },
+  "gitHead": "ff2806a4b519cb11e385fb0cf8109306bec328a9",
+  "homepage": "https://github.com/alwx/react-native-photo-view",
   "keywords": [
     "react-native",
     "react-component",
@@ -19,12 +74,21 @@
     "pinch-to-zoom",
     "mobile"
   ],
-  "homepage": "https://github.com/alwx/react-native-photo-view",
-  "bugs": {
-    "url": "https://github.com/alwx/react-native-photo-view/issues"
-  },
+  "license": "MIT",
+  "main": "index.js",
+  "maintainers": [
+    {
+      "name": "alwx",
+      "email": "alwxndr@gmail.com"
+    }
+  ],
+  "name": "react-native-photo-view",
+  "optionalDependencies": {},
+  "readme": "ERROR: No README data found!",
   "repository": {
     "type": "git",
     "url": "git://github.com/alwx/react-native-photo-view.git"
-  }
+  },
+  "scripts": {},
+  "version": "1.0.1"
 }

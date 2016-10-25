@@ -22,7 +22,6 @@ export default class PhotoView extends Component {
         fadeDuration: PropTypes.number,
         minimumZoomScale: PropTypes.number,
         maximumZoomScale: PropTypes.number,
-        scale: PropTypes.number,
         androidZoomTransitionDuration: PropTypes.number,
         androidScaleType: PropTypes.oneOf(["center", "centerCrop", "centerInside", "fitCenter", "fitStart", "fitEnd", "fitXY", "matrix"]),
         onLoadStart: PropTypes.func,
@@ -33,6 +32,10 @@ export default class PhotoView extends Component {
         onScale: PropTypes.func,
         ...View.propTypes
     };
+
+    constructor(props) {
+        super(props);
+    }
 
     render() {
         const source = resolveAssetSource(this.props.source);
@@ -56,6 +59,7 @@ export default class PhotoView extends Component {
                 loadingIndicatorSrc: loadingIndicatorSource ? loadingIndicatorSource.uri : null,
             };
 
+            console.log(JSON.stringify(nativeProps))
             return <PhotoViewAndroid {...nativeProps} />
         }
         return null
